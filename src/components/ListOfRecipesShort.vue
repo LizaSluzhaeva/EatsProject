@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="d-flex flex-row">
     <RecipeShort v-bind:recipe="recipes[0]"></RecipeShort>
+    <RecipeShort v-bind:recipe="recipes[1]"></RecipeShort>
   </div>
 </template>
 
