@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-navbar type="light" variant="light" class="d-flex justify-content-between">
+    <b-navbar type="light" variant="light" class="d-flex justify-content-between border-bottom border-top border-success">
       <div class="d-flex flex-row">
-        <b-navbar-brand href="#"><img src="../../pictures/logo.png" alt="Не удалось загрузить изображение"></b-navbar-brand>
+        <b-navbar-brand href="#"><img src="../../pictures/logo.svg" alt="Не удалось загрузить изображение"></b-navbar-brand>
         <b-navbar-nav v-show="users.length !== 0">
           <b-nav-item href="#" class="border-left" >Мои подборки</b-nav-item>
           <b-nav-item href="#" class="border-left">Мои рецепты</b-nav-item>
@@ -21,8 +21,20 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
-  props: ['users'],
-  name: "TopBar"
+  name: "TopBar",
+  data() {
+    return {
+      users: [
+        {
+          login: "Ivan66",
+          password: "777",
+          id: 1,
+          name: "Ivan",
+          Surname:"Van",isAdmin: false
+        }
+      ]
+    }
+  }
 }
 
 </script>

@@ -5,7 +5,7 @@
       <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
       <div class="p-2">
         <span class="card-text" v-for="ingredient in recipe.ingredients" :key="ingredient">
-          {{ ingredient }},
+          {{ ingredient.product.name }},
         </span>
       </div>
       <div class="d-flex flex-row justify-content-end pr-3 ">

@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <TopBar v-bind:users="users"></TopBar>
-    <ListOfRecipesShort v-bind:recipes="recipes"></ListOfRecipesShort>
+    <TopBar></TopBar>
+    <div class="mt-4 container row">
+      <SearchRecipe class="col col-lg-4 col-md-4 col-sm-4"></SearchRecipe>
+      <FilterRecipe class="col col-lg-2 col-md-2 col-sm-2"></FilterRecipe>
+    </div>
+    <ListOfRecipesShort></ListOfRecipesShort>
     <BottomBar></BottomBar>
   </div>
 </template>
@@ -10,61 +14,42 @@
 import TopBar from "@/components/TopBar";
 import ListOfRecipesShort from "@/components/ListOfRecipesShort";
 import BottomBar from "@/components/BottomBar";
+import SearchRecipe from "@/components/SearchRecipe";
+import FilterRecipe from "@/components/FilterRecipe";
 
 export default {
   name: 'App',
-  data() {
-    return {
-      recipe: {
-        name: '',
-        id: '',
-        type: '',
-        image: '',
-        time: '',
-        ingredients: '',
-        instruction: '',
-        isPrivate: '',
-        creatorId: ''
-      },
-      recipes: [
-        {
-          name:'Говядина с фасолью',
-          id: 1, type: 'Основное блюдо',
-          image: 'блюдо1.jpg',
-          time: '25-35 мин',
-          ingredients: ['лук', 'мясо', 'фасоль'],
-          instruction: 'Пожарить лук на небольшом количестве масла. Добавить мелко нарезанную говядину, обжарить 5 минут на сильном огне и залить томатной пастой. Тушить еще 15-20 минут. Заранее замоченную на ночь фасоль добавить в мясу, тушить еще 15 минут. Посолить и поперчить по вкусу, украсить зеленью.',
-          isPrivate: false,
-          creatorId: 1
-        },
-        {
-          name:'Запеченое куриное филе ',
-          id: 1, type: 'Основное блюдо',
-          image: 'блюдо2.jpg',
-          time: '30-40 мин',
-          ingredients: ['Куриное филе', 'Оливковое масло', 'Специи'],
-          instruction: 'Помыть филе, посыпать специями и маслом. Запекать 30 минут',
-          isPrivate: false,
-          creatorId: 1
-        }
-      ],
-      user: {
-        login: '',
-        password: '',
-        id: '',
-        name: '',
-        surname: '',
-        isAdmin: ''
-      },
-      users: [
-        {login: "Ivan66", password: "777", id: 1, name: "Ivan", Surname:"Van",isAdmin: false}
-      ],
-    }
-  },
   components: {
+    FilterRecipe,
+    SearchRecipe,
     ListOfRecipesShort,
     TopBar,
     BottomBar
+  },
+  methods: {
+    async getRequest(url, method = 'Get', data = null) {
+      try {
+        const headers = {}
+        let body
+
+        if (data) {
+          headers['Content-Type'] = 'application/json'
+          body = JSON.stringify(data)
+        }
+
+        const response = await fetch(url, {
+          method,
+          headers,
+          body
+        })
+        return response.json()
+      } catch (e) {
+        console.warn('Error', e.message);
+      }
+    },
+    async mounted() {
+      this.recipes = await this.getRequest('http://localhost/3000/recipes') // указываем порт на котором работает сервер
+    }
   }
 }
 </script>
