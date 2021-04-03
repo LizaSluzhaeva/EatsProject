@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <div class="card" style="width: 15rem;">
+    <div class="card" style="width: 15rem;"> <!--TODO одинаковые размеры карточек-->
       <img style="max-height: 270px" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
       <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
       <div class="p-2">

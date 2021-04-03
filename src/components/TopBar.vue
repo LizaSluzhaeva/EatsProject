@@ -25,13 +25,13 @@ export default {
   data() {
     return {
       users: [
-        {
-          login: "Ivan66",
-          password: "777",
-          id: 1,
-          name: "Ivan",
-          Surname:"Van",isAdmin: false
-        }
+        // {
+        //   login: "Ivan66",
+        //   password: "777",
+        //   id: 1,
+        //   name: "Ivan",
+        //   Surname:"Van",isAdmin: false
+        // }
       ]
     }
   }
