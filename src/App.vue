@@ -7,7 +7,8 @@
 <!--    </div>-->
 <!--    <ListOfRecipesShort></ListOfRecipesShort>-->
     <div>
-      <Authorization></Authorization>
+<!--      <Authorization></Authorization>-->
+    <Registration></Registration>
     </div>
     <BottomBar></BottomBar>
   </div>
@@ -19,12 +20,14 @@ import TopBar from "@/components/TopBar";
 import BottomBar from "@/components/BottomBar";
 // import SearchRecipe from "@/components/SearchRecipe";
 // import FilterRecipe from "@/components/FilterRecipe";
-import Authorization from "@/components/Authorization";
+// import Authorization from "@/components/Authorization";
+import Registration from "@/components/Registration";
 
 export default {
   name: 'App',
   components: {
-    Authorization,
+    Registration,
+    // Authorization,
     // FilterRecipe,
     // SearchRecipe,
     // ListOfRecipesShort,
