@@ -21,9 +21,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: "RecipeShort",
-  props: ['recipe'],
-  components: {
-  }
+  props: ['recipe']
 }
 
 </script>
