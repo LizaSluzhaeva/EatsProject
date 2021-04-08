@@ -7,10 +7,9 @@
         </div>
         <div class="modal-body">
           <ul class="list-group">
-            <!--TODO если выбран добавить класс active из bootstrap-->
-            <!--<li class="list-group-item active" aria-current="true">An active item</li>-->
-            <li class="list-group-item" v-for="selection in user.selections" :key="selection">
-              {{selection.selectionName}}
+            <li data="false" class="list-group-item" v-on:click="liClick" v-for="selection in user.selections"
+                :key="selection">
+              {{ selection.selectionName }}
             </li>
           </ul>
         </div>
@@ -26,7 +25,7 @@
 
 <script>
 export default {
-name: "ModalAddRecipeToSelection",
+  name: "ModalAddRecipeToSelection",
   data() {
     return {
       user: {
@@ -44,14 +43,19 @@ name: "ModalAddRecipeToSelection",
         ]
       }
     }
+  },
+  methods: {
+    liClick: function onClick(event) { // TODO починить лисенер на второе нажатие
+      event.target.classList.add('border-success');
+      event.target.addEventListener('click', function clicked(ev) {
+        event.target.removeEventListener('click', clicked)
+        ev.target.classList.remove('border-success');
+        ev.target.addEventListener('click', onClick);
+      })
+    }
+
   }
 }
-
-// let li = document.getElementsByClassName('list-group-item');
-//  function liClick() {
-//   li.classList.add('active');
-//   li.setAttribute("aria-current", 'true');
-// }
 
 </script>
 
