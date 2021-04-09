@@ -7,7 +7,7 @@
         </div>
         <div class="modal-body">
           <ul class="list-group">
-            <li data="false" class="list-group-item" v-on:click="liClick" v-for="selection in user.selections"
+            <li class="list-group-item" v-on:click="liClick" v-for="selection in user.selections"
                 :key="selection">
               {{ selection.selectionName }}
             </li>
@@ -20,7 +20,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 <template>
   <div class="p-4">
+    <ModalRecipeDetail v-bind:recipe="recipe"> </ModalRecipeDetail>
     <div class="card" style="width: 15rem;"> <!--TODO одинаковые размеры карточек-->
       <img style="max-height: 270px" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
       <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
@@ -18,10 +19,14 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import ModalRecipeDetail from "@/components/ModalRecipeDetail";
 
 export default {
   name: "RecipeShort",
-  props: ['recipe']
+  props: ['recipe'],
+  components: {
+    ModalRecipeDetail
+  }
 }
 
 </script>
