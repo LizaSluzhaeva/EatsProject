@@ -11,7 +11,8 @@
       <!--      <Authorization></Authorization>-->
       <!--    <Registration></Registration>-->
 <!--      <ModalAddRecipeToSelection></ModalAddRecipeToSelection>-->
-      <ListOfCollections></ListOfCollections>
+<!--      <ListOfCollections></ListOfCollections>-->
+      <ModalAddCollection></ModalAddCollection>
     </div>
     <div>
       <ButtonsToScroll></ButtonsToScroll>
@@ -31,7 +32,8 @@ import BottomBar from "@/components/BottomBar";
 // import Registration from "@/components/Registration";
 import ButtonsToScroll from "@/components/ButtonsToScroll";
 // import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
-import ListOfCollections from "@/components/ListOfCollections";
+// import ListOfCollections from "@/components/ListOfCollections";
+import ModalAddCollection from "@/components/ModalAddCollection";
 
 export default {
   name: 'App',
@@ -46,7 +48,9 @@ export default {
     BottomBar,
     ButtonsToScroll,
     // ModalAddRecipeToSelection,
-    ListOfCollections
+    // ListOfCollections
+    ModalAddCollection
+
   },
   methods: {
     async getRequest(url, method = 'Get', data = null) {
