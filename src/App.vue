@@ -12,7 +12,8 @@
       <!--    <Registration></Registration>-->
 <!--      <ModalAddRecipeToSelection></ModalAddRecipeToSelection>-->
 <!--      <ListOfCollections></ListOfCollections>-->
-      <ModalAddCollection></ModalAddCollection>
+<!--      <ModalAddCollection></ModalAddCollection>-->
+      <ListOfRecipeInCollection></ListOfRecipeInCollection>
     </div>
     <div>
       <ButtonsToScroll></ButtonsToScroll>
@@ -33,7 +34,8 @@ import BottomBar from "@/components/BottomBar";
 import ButtonsToScroll from "@/components/ButtonsToScroll";
 // import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
 // import ListOfCollections from "@/components/ListOfCollections";
-import ModalAddCollection from "@/components/ModalAddCollection";
+// import ModalAddCollection from "@/components/ModalAddCollection";
+import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
 
 export default {
   name: 'App',
@@ -49,7 +51,8 @@ export default {
     ButtonsToScroll,
     // ModalAddRecipeToSelection,
     // ListOfCollections
-    ModalAddCollection
+    // ModalAddCollection
+    ListOfRecipeInCollection
 
   },
   methods: {
