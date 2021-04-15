@@ -14,6 +14,7 @@
 <!--      <ListOfCollections></ListOfCollections>-->
 <!--      <ModalAddCollection></ModalAddCollection>-->
       <ListOfRecipeInCollection></ListOfRecipeInCollection>
+<!--      <ListOfCustomRecipes></ListOfCustomRecipes>-->
     </div>
     <div>
       <ButtonsToScroll></ButtonsToScroll>
@@ -36,6 +37,7 @@ import ButtonsToScroll from "@/components/ButtonsToScroll";
 // import ListOfCollections from "@/components/ListOfCollections";
 // import ModalAddCollection from "@/components/ModalAddCollection";
 import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
+// import ListOfCustomRecipes from "@/components/ListOfCustomRecipes";
 
 export default {
   name: 'App',
@@ -51,8 +53,9 @@ export default {
     ButtonsToScroll,
     // ModalAddRecipeToSelection,
     // ListOfCollections
-    // ModalAddCollection
     ListOfRecipeInCollection
+    // ModalAddCollection
+    // ListOfCustomRecipes
 
   },
   methods: {

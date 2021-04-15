@@ -1,11 +1,14 @@
 <template>
   <div>
-    <div class="d-flex flex-row justify-content-center">
-      <h1 class="border-bottom border-success">{{ collection.name }}</h1>
-    </div>
-    <div v-for="recipe in collection.recipes" :key="recipe">
-      <RecipeDetail v-bind:recipe="recipe"></RecipeDetail>
-    </div>
+      <div class="d-flex flex-row justify-content-center">
+        <h1 class="border-bottom border-success">{{ collection.name }}</h1>
+      </div>
+      <div v-for="recipe in collection.recipes" :key="recipe" class="d-flex flex-row justify-content-center">
+        <RecipeDetail v-bind:recipe="recipe"></RecipeDetail>
+        <div class="mb-3 ml-3 d-flex flex-column justify-content-end">
+          <button class="btn btn-outline-danger" type="submit">Удалить рецепт</button>
+        </div>
+      </div>
   </div>
 </template>
 
