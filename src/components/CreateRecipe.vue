@@ -39,7 +39,7 @@
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <div class="m-4 w-50">
-      <label for="formFile" class="form-label">Default file input example</label>
+      <label for="formFile" class="form-label">Загрузить изображение</label>
       <input class="form-control" type="file" id="formFile">
     </div>
   </div>

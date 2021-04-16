@@ -14,7 +14,7 @@
       </div>
       <div class="d-flex flex-column justify-content-end">
         <div class="pr-5 pb-4">
-          <button class="btn btn-outline-success" style="width: 170px" type="submit">Редактировать рецепт</button>
+          <button class="btn btn-outline-warning" style="width: 170px" type="submit">Редактировать рецепт</button>
         </div>
         <div class="pb-3">
           <button class="btn btn-outline-danger" style="width: 170px" type="submit">Удалить рецепт</button>

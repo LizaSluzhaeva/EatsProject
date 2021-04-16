@@ -16,6 +16,7 @@
 <!--      <ListOfRecipeInCollection></ListOfRecipeInCollection>-->
 <!--      <ListOfCustomRecipes></ListOfCustomRecipes>-->
 <!--      <CreateRecipe></CreateRecipe>-->
+      <EditRecipe></EditRecipe>
     </div>
     <div>
       <BottomBar></BottomBar>
@@ -39,6 +40,7 @@ import BottomBar from "@/components/BottomBar";
 // import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
 // import ListOfCustomRecipes from "@/components/ListOfCustomRecipes";
 // import CreateRecipe from "@/components/CreateRecipe";
+import EditRecipe from "@/components/EditRecipe";
 
 export default {
   name: 'App',
@@ -57,6 +59,7 @@ export default {
     // ModalAddCollection
     // ListOfCustomRecipes,
     // CreateRecipe
+    EditRecipe
 
   },
   methods: {
