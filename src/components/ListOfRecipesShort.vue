@@ -1,7 +1,10 @@
 <template>
-  <div class="d-flex flex-row">
-    <RecipeShort v-bind:recipe="recipes[0]"></RecipeShort>
-    <RecipeShort v-bind:recipe="recipes[1]"></RecipeShort>
+  <div>
+    <div class="d-flex flex-row">
+      <RecipeShort v-bind:recipe="recipes[0]"></RecipeShort>
+      <RecipeShort v-bind:recipe="recipes[1]"></RecipeShort>
+    </div>
+    <ButtonsToScroll></ButtonsToScroll>
   </div>
 </template>
 
@@ -9,11 +12,13 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import RecipeShort from "@/components/RecipeShort";
+import ButtonsToScroll from "@/components/ButtonsToScroll";
 
 export default {
 name: "ListOfRecipesShort",
   components: {
-    RecipeShort
+    RecipeShort,
+    ButtonsToScroll
   },
   data() {
     return {

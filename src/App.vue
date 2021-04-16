@@ -15,10 +15,9 @@
 <!--      <ModalAddCollection></ModalAddCollection>-->
 <!--      <ListOfRecipeInCollection></ListOfRecipeInCollection>-->
 <!--      <ListOfCustomRecipes></ListOfCustomRecipes>-->
-      <CreateRecipe></CreateRecipe>
+<!--      <CreateRecipe></CreateRecipe>-->
     </div>
     <div>
-      <ButtonsToScroll></ButtonsToScroll>
       <BottomBar></BottomBar>
     </div>
   </div>
@@ -26,20 +25,20 @@
 
 <script>
 import TopBar from "@/components/TopBar";
-//import ListOfRecipesShort from "@/components/ListOfRecipesShort";
+// import ListOfRecipesShort from "@/components/ListOfRecipesShort";
 //import ModalRecipeDetail from "@/components/ModalRecipeDetail";
 import BottomBar from "@/components/BottomBar";
 //import SearchRecipe from "@/components/SearchRecipe";
 //import FilterRecipe from "@/components/FilterRecipe";
 // import Authorization from "@/components/Authorization";
 // import Registration from "@/components/Registration";
-import ButtonsToScroll from "@/components/ButtonsToScroll";
+// import ButtonsToScroll from "@/components/ButtonsToScroll";
 // import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
 // import ListOfCollections from "@/components/ListOfCollections";
 // import ModalAddCollection from "@/components/ModalAddCollection";
 // import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
 // import ListOfCustomRecipes from "@/components/ListOfCustomRecipes";
-import CreateRecipe from "@/components/CreateRecipe";
+// import CreateRecipe from "@/components/CreateRecipe";
 
 export default {
   name: 'App',
@@ -52,13 +51,12 @@ export default {
     // ModalRecipeDetail,
     TopBar,
     BottomBar,
-    ButtonsToScroll,
     // ModalAddRecipeToSelection,
     // ListOfCollections
     // ListOfRecipeInCollection
     // ModalAddCollection
     // ListOfCustomRecipes,
-    CreateRecipe
+    // CreateRecipe
 
   },
   methods: {

@@ -9,16 +9,19 @@
     <div v-for="collection in collections" :key="collection">
       <Collection v-bind:collection="collection"></Collection>
     </div>
+    <ButtonsToScroll></ButtonsToScroll>
   </div>
 </template>
 
 <script>
 import Collection from "@/components/Collection";
+import ButtonsToScroll from "@/components/ButtonsToScroll";
 
 export default {
 name: "ListOfCollections",
   components: {
-    Collection
+    Collection,
+    ButtonsToScroll
   },
   data() {
     return {
