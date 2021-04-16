@@ -6,7 +6,7 @@
           <h5 class="modal-title border-bottom border-success">Создать подборку</h5>
         </div>
         <div class="modal-body">
-          <div class="input-group-text" id="btnGroupAddon2">Название</div>
+          <input class="form-control" id="exampleFormControlInput1" placeholder="Название">
         </div>
         <div class="modal-footer d-flex flex-row justify-content-around">
           <button type="button" class="btn btn-success">Добавить</button>

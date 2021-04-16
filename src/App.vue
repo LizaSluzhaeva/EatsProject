@@ -13,8 +13,9 @@
 <!--      <ModalAddRecipeToSelection></ModalAddRecipeToSelection>-->
 <!--      <ListOfCollections></ListOfCollections>-->
 <!--      <ModalAddCollection></ModalAddCollection>-->
-      <ListOfRecipeInCollection></ListOfRecipeInCollection>
+<!--      <ListOfRecipeInCollection></ListOfRecipeInCollection>-->
 <!--      <ListOfCustomRecipes></ListOfCustomRecipes>-->
+      <CreateRecipe></CreateRecipe>
     </div>
     <div>
       <ButtonsToScroll></ButtonsToScroll>
@@ -36,8 +37,9 @@ import ButtonsToScroll from "@/components/ButtonsToScroll";
 // import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
 // import ListOfCollections from "@/components/ListOfCollections";
 // import ModalAddCollection from "@/components/ModalAddCollection";
-import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
+// import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
 // import ListOfCustomRecipes from "@/components/ListOfCustomRecipes";
+import CreateRecipe from "@/components/CreateRecipe";
 
 export default {
   name: 'App',
@@ -53,9 +55,10 @@ export default {
     ButtonsToScroll,
     // ModalAddRecipeToSelection,
     // ListOfCollections
-    ListOfRecipeInCollection
+    // ListOfRecipeInCollection
     // ModalAddCollection
-    // ListOfCustomRecipes
+    // ListOfCustomRecipes,
+    CreateRecipe
 
   },
   methods: {
