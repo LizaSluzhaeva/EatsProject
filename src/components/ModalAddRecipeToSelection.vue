@@ -14,7 +14,7 @@
           </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button @click="closeBtnClick" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
           <button type="button" class="btn btn-success">Добавить</button>
         </div>
       </div>
@@ -25,8 +25,10 @@
 <script>
 export default {
   name: "ModalAddRecipeToSelection",
+  props: ['someProps'],
   data() {
     return {
+      isModalAddRecipeToSelVisible: false,
       user: {
         userId: 1,
         selections: [
@@ -50,6 +52,11 @@ export default {
         event.target.removeEventListener('click', clicked)
         ev.target.classList.remove('border-success');
         ev.target.addEventListener('click', onClick);
+      })
+    },
+    closeBtnClick() {
+      this.$emit('updateParent', {
+        isModalAddRecipeToSelVisible: this.isModalAddRecipeToSelVisible
       })
     }
 

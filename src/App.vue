@@ -1,66 +1,20 @@
 <template>
   <div id="app" class="d-flex  justify-content-between" style="flex-direction: column; height: 100vh;">
     <TopBar></TopBar>
-    <div>
-<!--      <div class="mt-4 container row">-->
-<!--        <SearchRecipe class="col col-lg-4 col-md-4 col-sm-4"></SearchRecipe>-->
-<!--        <FilterRecipe class="col col-lg-2 col-md-2 col-sm-2"></FilterRecipe>-->
-<!--      </div>-->
-<!--      <ModalRecipeDetail></ModalRecipeDetail>-->
-<!--      <ListOfRecipesShort></ListOfRecipesShort>-->
-      <!--      <Authorization></Authorization>-->
-      <!--    <Registration></Registration>-->
-<!--      <ModalAddRecipeToSelection></ModalAddRecipeToSelection>-->
-<!--      <ListOfCollections></ListOfCollections>-->
-<!--      <ModalAddCollection></ModalAddCollection>-->
-<!--      <ListOfRecipeInCollection></ListOfRecipeInCollection>-->
-<!--      <ListOfCustomRecipes></ListOfCustomRecipes>-->
-<!--      <CreateRecipe></CreateRecipe>-->
-      <EditRecipe></EditRecipe>
-    </div>
-    <div>
-      <BottomBar></BottomBar>
-    </div>
+    <router-view/>
+    <BottomBar></BottomBar>
   </div>
 </template>
-
 <script>
 import TopBar from "@/components/TopBar";
-// import ListOfRecipesShort from "@/components/ListOfRecipesShort";
-//import ModalRecipeDetail from "@/components/ModalRecipeDetail";
 import BottomBar from "@/components/BottomBar";
-//import SearchRecipe from "@/components/SearchRecipe";
-//import FilterRecipe from "@/components/FilterRecipe";
-// import Authorization from "@/components/Authorization";
-// import Registration from "@/components/Registration";
-// import ButtonsToScroll from "@/components/ButtonsToScroll";
-// import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
-// import ListOfCollections from "@/components/ListOfCollections";
-// import ModalAddCollection from "@/components/ModalAddCollection";
-// import ListOfRecipeInCollection from "@/components/ListOfRecipeInCollection";
-// import ListOfCustomRecipes from "@/components/ListOfCustomRecipes";
-// import CreateRecipe from "@/components/CreateRecipe";
-import EditRecipe from "@/components/EditRecipe";
+
 
 export default {
   name: 'App',
   components: {
-    // Registration,
-    // Authorization,
-    // FilterRecipe,
-    // SearchRecipe,
-    // ListOfRecipesShort,
-    // ModalRecipeDetail,
     TopBar,
-    BottomBar,
-    // ModalAddRecipeToSelection,
-    // ListOfCollections
-    // ListOfRecipeInCollection
-    // ModalAddCollection
-    // ListOfCustomRecipes,
-    // CreateRecipe
-    EditRecipe
-
+    BottomBar
   },
   methods: {
     async getRequest(url, method = 'Get', data = null) {

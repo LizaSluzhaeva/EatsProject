@@ -8,11 +8,13 @@
       <input type="password" class="form-control mb-3" id="inputLogin" placeholder="Логин">
       <input type="password" class="form-control" id="inputPassword" placeholder="Пароль">
     </div>
-    <button class="btn btn-outline-success col-1" type="submit">Создать</button>
-    <p type="text" href="#" class="pt-3 form-control border-left-0 border-right-0 border-top-0"
+    <div class="border border-success rounded">
+      <router-link class="p-3" to="/" style="color: #57AD56; font-size: 20px">Создать</router-link>
+    </div>
+    <router-link to="/" class="pt-3 form-control border-left-0 border-right-0 border-top-0"
        style="color: #938D8D; max-width: 15%; text-align: center">
       Уже есть аккаунт
-    </p>
+    </router-link>
   </div>
 </template>
 

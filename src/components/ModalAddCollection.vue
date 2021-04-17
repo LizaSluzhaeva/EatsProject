@@ -10,7 +10,7 @@
         </div>
         <div class="modal-footer d-flex flex-row justify-content-around">
           <button type="button" class="btn btn-success">Добавить</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Отмена</button>
+          <button @click="closeBtnClick" type="button" class="btn btn-danger" data-bs-dismiss="modal">Отмена</button>
         </div>
       </div>
     </div>
@@ -19,7 +19,15 @@
 
 <script>
 export default {
-  name: "ModalAddCollection"
+  name: "ModalAddCollection",
+  props: ['someProps'],
+  methods: {
+    closeBtnClick() {
+      this.$emit('updateParent', {
+        isModalAddRecipeToSelVisible: this.isModalAddRecipeToSelVisible
+      })
+    }
+  }
 }
 </script>
 

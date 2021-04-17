@@ -9,7 +9,14 @@
         </div>
       </div>
       <div class="pt-5 pr-3 pb-3 d-flex flex-column justify-content-end">
-        <button class="btn btn-outline-danger w-100" type="submit">Удалить подборку</button>
+        <div class="border border-success rounded">
+          <router-link to="/recipesInCollection" style="color: #57AD56; font-size: 20px" class="p-3">
+            Открыть список рецептов
+          </router-link>
+        </div>
+        <div class="mt-2">
+          <button class="btn btn-outline-danger w-100" type="submit">Удалить подборку</button>
+        </div>
       </div>
     </div>
   </div>

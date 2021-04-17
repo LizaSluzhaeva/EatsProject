@@ -1,16 +1,20 @@
 <template>
   <div class="p-4">
-    <ModalRecipeDetail v-bind:recipe="recipe"> </ModalRecipeDetail>
-    <div class="card" style="width: 15rem;"> <!--TODO одинаковые размеры карточек-->
-      <img style="max-height: 270px" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
-      <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
-      <div class="p-2">
-        <span class="card-text" v-for="ingredient in recipe.ingredients" :key="ingredient">
-          {{ ingredient.product.name }},
-        </span>
+    <ModalRecipeDetail :someProps="isModalRecipeDetailVisible" @updateParent="closeModal" v-if="isModalRecipeDetailVisible"
+                       v-bind:recipe="recipe"> </ModalRecipeDetail>
+    <ModalAddRecipeToSelection :someProps="isModalAddRecipeToSelVisible" @updateParent="closeModal" v-if="isModalAddRecipeToSelVisible"></ModalAddRecipeToSelection>
+    <div class="card"> <!--TODO одинаковые размеры карточек-->
+      <div @click="cardClick" class="w-100">
+        <img style="max-height: 270px;" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
+        <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
+        <div class="p-2">
+          <span class="card-text" v-for="ingredient in recipe.ingredients" :key="ingredient">
+            {{ ingredient.product.name }},
+          </span>
+        </div>
       </div>
-      <div class="d-flex flex-row justify-content-end pr-3 ">
-        <button class="btn btn-outline-success w-50" type="submit">Добавить</button>
+      <div class="d-flex flex-row justify-content-end p-3 ">
+        <button @click="addBtnClick" class="btn btn-outline-success w-50" type="submit">Добавить</button>
       </div>
     </div>
   </div>
@@ -20,12 +24,34 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import ModalRecipeDetail from "@/components/ModalRecipeDetail";
+import ModalAddRecipeToSelection from "@/components/ModalAddRecipeToSelection";
 
 export default {
   name: "RecipeShort",
   props: ['recipe'],
   components: {
-    ModalRecipeDetail
+    ModalRecipeDetail,
+    ModalAddRecipeToSelection
+  },
+  data() {
+    return {
+      isModalAddRecipeToSelVisible: false,
+      isModalRecipeDetailVisible: false
+    }
+  },
+  methods: {
+    closeModal() {
+      this.isModalRecipeDetailVisible = false;
+      this.isModalAddRecipeToSelVisible = false;
+    },
+    cardClick() {
+      this.isModalAddRecipeToSelVisible = false;
+      this.isModalRecipeDetailVisible = true;
+    },
+    addBtnClick() {
+      this.isModalRecipeDetailVisible = false;
+      this.isModalAddRecipeToSelVisible = true;
+    }
   }
 }
 

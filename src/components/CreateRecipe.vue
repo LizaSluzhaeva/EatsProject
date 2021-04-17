@@ -42,6 +42,9 @@
       <label for="formFile" class="form-label">Загрузить изображение</label>
       <input class="form-control" type="file" id="formFile">
     </div>
+    <div class="d-flex flex-row justify-content-end pt-2 mb-5 mr-5">
+      <button type="button" class="btn btn-success">Создать</button>
+    </div>
   </div>
 </template>
 

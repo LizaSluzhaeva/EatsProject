@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="mt-4 container row">
+      <SearchRecipe class="col col-lg-4 col-md-4 col-sm-4"></SearchRecipe>
+      <FilterRecipe class="col col-lg-2 col-md-2 col-sm-2"></FilterRecipe>
+    </div>
     <div class="d-flex flex-row">
       <RecipeShort v-bind:recipe="recipes[0]"></RecipeShort>
       <RecipeShort v-bind:recipe="recipes[1]"></RecipeShort>
@@ -13,12 +17,16 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import RecipeShort from "@/components/RecipeShort";
 import ButtonsToScroll from "@/components/ButtonsToScroll";
+import SearchRecipe from "@/components/SearchRecipe";
+import FilterRecipe from "@/components/FilterRecipe";
 
 export default {
 name: "ListOfRecipesShort",
   components: {
     RecipeShort,
-    ButtonsToScroll
+    ButtonsToScroll,
+    SearchRecipe,
+    FilterRecipe
   },
   data() {
     return {

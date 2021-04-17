@@ -1,10 +1,10 @@
 <template>
-  <div class="modal mt-5" tabindex="-1" style="display: block">
+  <div class="modal mb-4" tabindex="-1" style="display: block" id="closeRecipeDetailModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">{{recipe.name}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button @click="closeBtnClick" type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">X</button>
         </div>
         <div class="mb-2 modal-body d-flex flex-row justify-content-between">
           <img style="max-height: 270px" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
@@ -30,7 +30,19 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: "ModalRecipeDetail",
-  props: ["recipe"]
+  props: ["recipe", 'someProps'],
+  data() {
+    return {
+      isModalRecipeDetailVisible: false
+    }
+  },
+  methods: {
+    closeBtnClick() {
+      this.$emit('updateParent', {
+        isModalRecipeDetailVisible: this.isModalRecipeDetailVisible
+      })
+    }
+  }
 }
 </script>
 
