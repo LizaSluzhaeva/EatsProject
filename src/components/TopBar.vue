@@ -21,7 +21,9 @@
         </b-navbar-nav>
       </div>
         <form v-show="users.length !== 0">
-          <router-link class="p-1 border-success border rounded " to="/" style="color: #57AD56; font-size: 20px; text-align: center">Выйти</router-link>
+          <router-link to="/">
+            <button class="btn btn-outline-success" type="submit">Выйти</button>
+          </router-link>
           <router-link to="/personalMenu">
             <img src="../../pictures/icons8-личный-календарь-50.png" alt="Не удалось загрузить изображение" class="ml-4" style="width: 2.5em; height: 2.5em">
           </router-link>

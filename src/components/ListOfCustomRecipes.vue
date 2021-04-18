@@ -4,16 +4,16 @@
       <div style="width: 70%">
         <div class="d-flex flex-row justify-content-around pl-5 pt-3">
           <h1 style="max-width: 40%; text-align: center" class="border-bottom border-success">Мои рецепты</h1>
-          <div class="border border-success rounded pt-2">
-            <router-link class="p-2" to="/createRecipe" style="color: #57AD56; font-size: 20px; text-align: center">Создать рецепт</router-link>
-          </div>
+          <router-link class="mt-3" to="/createRecipe">
+            <button class="btn btn-outline-success" type="submit">Создать рецепт</button>
+          </router-link>
         </div>
         <div v-for="recipe in recipes" :key="recipe" class="d-flex flex-row  justify-content-center">
           <RecipeDetail v-bind:recipe="recipe"></RecipeDetail>
           <div class="d-flex flex-column justify-content-end pl-4">
-            <div class="border border-success rounded pl-3 pr-3 mb-3">
-              <router-link class="w-25" to="/editRecipe" style="color: #57AD56; font-size: 18px; text-align: center">Редактировать рецепт</router-link>
-            </div>
+            <router-link class="mb-2" to="/editRecipe">
+              <button class="btn btn-outline-success" type="submit">Редактировать рецепт</button>
+            </router-link>
             <div class="pb-3">
               <button class="btn btn-outline-danger" style="width: 170px" type="submit">Удалить рецепт</button>
             </div>
