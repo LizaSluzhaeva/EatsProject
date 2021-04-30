@@ -4,9 +4,11 @@
       <SearchRecipe class="col col-lg-4 col-md-4 col-sm-4"></SearchRecipe>
       <FilterRecipe class="col col-lg-2 col-md-2 col-sm-2"></FilterRecipe>
     </div>
-    <div class="d-flex flex-row">
+    <div class="gridBody">
       <RecipeShort v-bind:recipe="recipes[0]"></RecipeShort>
       <RecipeShort v-bind:recipe="recipes[1]"></RecipeShort>
+      <RecipeShort v-bind:recipe="recipes[2]"></RecipeShort>
+      <RecipeShort v-bind:recipe="recipes[3]"></RecipeShort>
     </div>
     <ButtonsToScroll></ButtonsToScroll>
   </div>
@@ -109,6 +111,84 @@ name: "ListOfRecipesShort",
             Surname:"Van",
             isAdmin: false
           }
+        },
+        {
+          name:'Блинчики с сыром фета',
+          id: 3,
+          type: 'Завтрак',
+          image: 'блюдо3.jpg',
+          time: '35-45 мин',
+          ingredients: [
+            {
+              product: {
+                name: "Молоко"
+              },
+              numberOfProduct: 300,
+              unitOfMeasurement: 'грамм'
+            },
+            {
+              product: {
+                name: "Мука"
+              },
+              numberOfProduct: 200,
+              unitOfMeasurement: 'грамм'
+            },
+            {
+              product: {
+                name: "Яйца"
+              },
+              numberOfProduct: 4,
+              unitOfMeasurement: 'штуки'
+            }
+          ],
+          instruction: 'Смешать молоко и яйца, добавить соль по вкусу. Испечь блинчики с добавлением масла.',
+          isPrivate: false,
+          creatorId: {
+            login: "Ivan66",
+            password: "777",
+            id: 1,
+            name: "Ivan",
+            Surname:"Van",isAdmin: false
+          }
+        },
+        {
+          name:'Быстрая лазанья',
+          id: 3,
+          type: 'Основное блюдо',
+          image: 'блюдо4.jpg',
+          time: '20-30 мин',
+          ingredients: [
+            {
+              product: {
+                name: "Тонкий лаваш"
+              },
+              numberOfProduct: 1,
+              unitOfMeasurement: 'штука'
+            },
+            {
+              product: {
+                name: "Сыр"
+              },
+              numberOfProduct: 100,
+              unitOfMeasurement: 'грамм'
+            },
+            {
+              product: {
+                name: "Томатная паста"
+              },
+              numberOfProduct: 40,
+              unitOfMeasurement: 'грамм'
+            }
+          ],
+          instruction: 'Выложить слоями лаваш, томатную пасту и натертый на терке сыр. Сверху посыпать сыром и выпекать в духовке 15 минут. Готовое блюдо можно украсить зеленью.',
+          isPrivate: false,
+          creatorId: {
+            login: "Ivan66",
+            password: "777",
+            id: 1,
+            name: "Ivan",
+            Surname:"Van",isAdmin: false
+          }
         }
       ]
     }
@@ -117,5 +197,10 @@ name: "ListOfRecipesShort",
 </script>
 
 <style scoped>
-
+.gridBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 12px;
+  grid-row-gap: 6px;
+}
 </style>

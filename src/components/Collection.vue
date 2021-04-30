@@ -1,7 +1,7 @@
 <template>
   <div class="p-4" style="max-width: 70%">
     <div class="card d-flex flex-row pl-3 justify-content-between">
-      <img style="max-width: 270px" :src="require(`@/assets/${collection.image}`)" alt="Не удалось загрузить изображение">
+      <img style="max-width: 270px; max-height: 280px" :src="require(`@/assets/${collection.image}`)" alt="Не удалось загрузить изображение">
       <div class="pt-3">
         <h4 class="p-2 mb-0 "> {{ collection.name }} </h4>
         <div class="card-text" v-for="recipe in collection.recipes" :key="recipe">

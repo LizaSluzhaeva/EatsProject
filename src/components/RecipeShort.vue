@@ -3,13 +3,13 @@
     <ModalRecipeDetail :someProps="isModalRecipeDetailVisible" @updateParent="closeModal" v-if="isModalRecipeDetailVisible"
                        v-bind:recipe="recipe"> </ModalRecipeDetail>
     <ModalAddRecipeToSelection :someProps="isModalAddRecipeToSelVisible" @updateParent="closeModal" v-if="isModalAddRecipeToSelVisible"></ModalAddRecipeToSelection>
-    <div class="card"> <!--TODO одинаковые размеры карточек-->
+    <div class="card" style="min-width: 350px; max-width: 350px">
       <div @click="cardClick" class="w-100">
-        <img style="max-height: 270px;" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
+        <img style="max-height: 270px; max-width: 350px" :src="require(`@/assets/${recipe.image}`)" alt="Не удалось загрузить изображение">
         <h4 class="p-2 mb-0 "> {{ recipe.name }} </h4>
         <div class="p-2">
           <span class="card-text" v-for="ingredient in recipe.ingredients" :key="ingredient">
-            {{ ingredient.product.name }},
+            {{ ingredient.product.name }}
           </span>
         </div>
       </div>

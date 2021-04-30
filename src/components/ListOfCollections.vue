@@ -67,6 +67,22 @@ name: "ListOfCollections",
             }
           ]
         },
+        {
+          name: 'Супы',
+          idOfCollection: 3,
+          image: 'суп1.jpg',
+          recipes: [
+            {
+              name: 'Куриный суп'
+            },
+            {
+              name: 'Борщ с фасолью'
+            },
+            {
+              name: 'Чечевичный суп'
+            }
+          ]
+        }
       ]
     }
   }
