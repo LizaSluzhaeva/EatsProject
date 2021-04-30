@@ -2,8 +2,8 @@
   <div class="">
     <div class="btn-group-vertical ml-5 w-25">
       <button @click="changeLoginClick" class="btn btn-outline-secondary" type="submit">Сменить логин</button>
-      <button @click="changePasswordClick" class="btn btn-outline-secondary" type="submit">Сменить пароль</button>
-      <button @click="changeAdminClick"  v-if="user.isAdmin" class="btn btn-outline-secondary" type="submit">Администрирование</button>
+      <button @click="changePasswordClick" class="btn btn-outline-secondary border-top-0" type="submit">Сменить пароль</button>
+      <button @click="changeAdminClick"  v-if="user.isAdmin" class="btn btn-outline-secondary border-top-0" type="submit">Администрирование</button>
     </div>
     <ChangeLogin  v-if="isChangeLoginClick"></ChangeLogin>
     <ChangePassword v-if="isChangePasswordClick"></ChangePassword>
