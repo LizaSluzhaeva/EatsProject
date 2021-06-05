@@ -1,104 +1,83 @@
 <template>
   <div id="admin" class="btn-group-vertical ml-5 w-25">
-    <button @click="showTableRecipe" class="btn btn-outline-success" type="submit">Рецепты</button>
-    <button @click="showTableCollections" class="btn btn-outline-success border-top-0" type="submit">Подборки</button>
-    <button @click="showTableUsers" class="btn btn-outline-success border-top-0" type="submit">Пользователи</button>
-    <div v-if="isCollectionsTableVisible || isUsersTableVisible || isRecipeTableVisible">
+    <button @click="showTableRecipe" class="mt-3 btn btn-outline-success" type="submit">Рецепты в подборках</button>
+    <div>
       <table v-if="isRecipeTableVisible" class="table mt-5 table-bordered border-secondary">
         <thead>
         <tr>
           <td>
-            Рецепт
-          </td>
-          <td>
-            Создатель
-          </td>
-          <td>
-            Ингредиенты
-          </td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-        </tr>
-        </tbody>
-      </table>
-      <table v-if="isUsersTableVisible" class="table mt-5 table-bordered border-secondary">
-        <thead>
-        <tr>
-          <td>
-            Пользователь
+            Наименование подборки
           </td>
           <td>
             Рецепты
           </td>
-          <td>
-            Подборки
-          </td>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
+        <tr class="border-right-0" v-for="element in this.data" :key="element.id">
+          <td v-if="element.collectionName !== ''">
+            {{element.collectionName}}
+          </td>
+          <td>
+            <p v-for="recipe in element.recipeFullDtos" :key="recipe.id">
+              {{ recipe.name }}
+            </p>
+          </td>
         </tr>
         </tbody>
       </table>
-      <table v-if="isCollectionsTableVisible" class="table mt-5 table-bordered border-secondary">
-        <thead>
-        <tr>
-          <td>
-            Подборка
-          </td>
-          <td>
-            Рецепты
-          </td>
-          <td>
-            Приватность
-          </td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>...</td>
-          <td>...</td>
-          <td>...</td>
-        </tr>
-        </tbody>
-      </table>
-      <div class="d-flex flex-row justify-content-around">
-        <button type="button" class="btn btn-success">Сохранить</button>
-        <button @click="isRecipeTableVisible = false; isUsersTableVisible=false; isCollectionsTableVisible=false"
-                type="button" class="btn btn-danger" data-bs-dismiss="modal">Отмена</button>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
 export default {
   name: "Administration",
+  computed: {
+    recipesList: function () {
+      const result = []
+      for (const index in this.data) {
+        const collection = this.data[index]
+        for (const recipeIndex in collection.recipeFullDtos) {
+          const recipe = collection.recipeFullDtos[recipeIndex]
+          if (!result.some(r => r.id === recipe.id)) {
+            result.push(recipe)
+          }
+        }
+      }
+      return result
+    },
+    ...mapGetters(['getUserToken', 'getUserId'])
+  },
+  async mounted() {
+    if (this.getUserId === undefined) {
+      window.location = 'http://localhost:8080'
+    } else {
+      const res = await fetch("http://localhost:8081/collection/findAll", {
+        method: 'Get',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          'Authorization': this.getUserToken
+        }
+      });
+      this.data = await res.json()
+    }
+  },
   data() {
     return {
       isRecipeTableVisible: false,
       isCollectionsTableVisible: false,
       isUsersTableVisible: false,
+      data: undefined
     }
   },
   methods: {
-    showTableRecipe() {
+    async showTableRecipe() {
       this.isCollectionsTableVisible = false;
       this.isUsersTableVisible = false;
       this.isRecipeTableVisible = true;
-    },
-    showTableUsers() {
-      this.isCollectionsTableVisible = false;
-      this.isRecipeTableVisible = false;
-      this.isUsersTableVisible = true;
     },
     showTableCollections() {
       this.isUsersTableVisible = false;

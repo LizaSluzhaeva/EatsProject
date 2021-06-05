@@ -7,7 +7,7 @@
             <img src="../../pictures/logo.svg" alt="Не удалось загрузить изображение">
           </router-link>
         </b-navbar-brand>
-        <b-navbar-nav v-show="users.length !== 0">
+        <b-navbar-nav v-show="getUserId !== undefined">
           <b-nav-item href="#" class="border-left" >
             <router-link style="color: #938D8D;" to="/collections">
               Мои подборки
@@ -20,14 +20,17 @@
           </b-nav-item>
         </b-navbar-nav>
       </div>
-        <form v-show="users.length !== 0">
+        <form v-show="getUserId !== undefined">
           <router-link to="/">
-            <button class="btn btn-outline-success" type="submit">Выйти</button>
+            <button @click="exitBtnClick" class="btn btn-outline-success" type="submit">Выйти</button>
           </router-link>
-          <router-link to="/personalMenu">
+          <router-link v-if="isUserAdmin" to="/personalMenu">
             <img src="../../pictures/icons8-личный-календарь-50.png" alt="Не удалось загрузить изображение" class="ml-4" style="width: 2.5em; height: 2.5em">
           </router-link>
         </form>
+      <router-link v-if="this.getUserId === undefined" to="/">
+        <button class="btn btn-outline-success" type="submit">Войти</button>
+      </router-link>
     </b-navbar>
   </div>
 </template>
@@ -35,20 +38,14 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import {mapGetters} from 'vuex'
 
 export default {
   name: "TopBar",
-  data() {
-    return {
-      users: [
-        {
-          login: "Ivan66",
-          password: "777",
-          id: 1,
-          name: "Ivan",
-          Surname:"Van",isAdmin: false
-        }
-      ]
+  computed: mapGetters(['getUserId', 'isUserAdmin']),
+  methods: {
+    exitBtnClick() {
+      this.$store.dispatch('logoutUser')
     }
   }
 }

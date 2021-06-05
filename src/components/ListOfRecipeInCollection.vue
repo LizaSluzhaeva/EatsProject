@@ -1,120 +1,39 @@
 <template>
   <div>
     <div class="d-flex flex-row justify-content-center">
-      <h1 class="border-bottom border-success">{{ collection.name }}</h1>
+      <h1 class="border-bottom border-success">{{collection.collectionName }}</h1>
     </div>
-    <div v-for="recipe in collection.recipes" :key="recipe" class="w-75 d-flex flex-row justify-content-center">
-      <RecipeDetail v-bind:recipe="recipe"></RecipeDetail>
+    <div v-for="recipe in collection.recipeFullDtos" :key="recipe.id" class="w-75 d-flex flex-row justify-content-center">
+      <RecipeDetail v-bind:recipe="recipe">{{collection}}</RecipeDetail>
       <div class="mb-3 ml-3 d-flex flex-column justify-content-end w-25">
-        <button class="btn btn-outline-danger" type="submit">Удалить рецепт</button>
+        <button @click=deleteRecipeBtn(recipe.id) class="btn btn-outline-danger" type="submit">Удалить рецепт</button>
       </div>
     </div>
-    <ButtonsToScroll></ButtonsToScroll>
   </div>
 </template>
 
 <script>
-import RecipeDetail from "@/components/RecipeDetail";
-import ButtonsToScroll from "@/components/ButtonsToScroll";
+import RecipeDetail from "@/components/RecipeDetail"
 
 export default {
   name: "ListOfRecipeInCollection",
   components: {
-    RecipeDetail,
-    ButtonsToScroll
+    RecipeDetail
   },
-  data() {
-    return {
-      collection: {
-        name: 'Обеды',
-        recipes: [
-          {
-            name: 'Говядина с фасолью',
-            image: 'блюдо1.jpg',
-            ingredients: [
-              {
-                product: {
-                  name: "Фасоль"
-                },
-                numberOfProduct: 100,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Говядина"
-                },
-                numberOfProduct: 200,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Томатная паста"
-                },
-                numberOfProduct: 100,
-                unitOfMeasurement: 'грамм'
-              }
-            ],
-            instruction: 'Пожарить лук на небольшом количестве масла. Добавить мелко нарезанную говядину, обжарить 5 минут на сильном огне и залить томатной пастой. Тушить еще 15-20 минут. Заранее замоченную на ночь фасоль добавить в мясу, тушить еще 15 минут. Посолить и поперчить по вкусу, украсить зеленью.',
-          },
-          {
-            name: 'Суп куриный',
-            image: 'суп1.jpg',
-            ingredients: [
-              {
-                product: {
-                  name: "Куриное филе"
-                },
-                numberOfProduct: 200,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Картофель"
-                },
-                numberOfProduct: 100,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Лук"
-                },
-                numberOfProduct: 1,
-                unitOfMeasurement: 'штука'
-              }
-            ],
-            instruction: 'Отварить курицу, закинуть картофель и лук, варить до готовности. Посолить по вкусу.'
-          },
-          {
-            name: 'Паста с креветками',
-            image: 'паста.jpg',
-            ingredients: [
-              {
-                product: {
-                  name: "Креветки"
-                },
-                numberOfProduct: 200,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Паста"
-                },
-                numberOfProduct: 100,
-                unitOfMeasurement: 'грамм'
-              },
-              {
-                product: {
-                  name: "Чеснок"
-                },
-                numberOfProduct: 1,
-                unitOfMeasurement: 'штука'
-              }
-            ],
-            instruction: 'Почистить креветки и чеснок. На оливковом масле пожарить чеснок, добавить креветки. Добавить ' +
-                'отвареные макароны, тушить 5 минут'
-          }
-        ]
-      }
+  computed: {
+    id: function () {
+      return this.$store.getters.getEditingCollectionId
+    },
+    collection: function () {
+      return this.$store.getters.getCollectionById(this.id)
+    },
+    getUserToken: function () {
+      return this.$store.getters.getUserToken
+    }
+  },
+  methods: {
+    deleteRecipeBtn(recipeId) {
+      this.$store.dispatch('deleteRecipeFromSelection', { token: this.getUserToken, collectionId: this.id, recipeId: recipeId} )
     }
   }
 }

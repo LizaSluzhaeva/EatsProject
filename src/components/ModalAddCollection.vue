@@ -31,6 +31,11 @@ export default {
       this.$emit('updateParent', {
         isModalAddRecipeToSelVisible: this.isModalAddRecipeToSelVisible
       })
+      const input = this.$el.querySelector('#exampleFormControlInput1')
+      if (input.value !== '') {
+        this.$emit('addCollection', input.value.trim())
+      }
+
     },
   }
 }

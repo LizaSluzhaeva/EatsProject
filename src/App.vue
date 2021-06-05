@@ -15,31 +15,6 @@ export default {
   components: {
     TopBar,
     BottomBar
-  },
-  methods: {
-    async getRequest(url, method = 'Get', data = null) {
-      try {
-        const headers = {}
-        let body
-
-        if (data) {
-          headers['Content-Type'] = 'application/json'
-          body = JSON.stringify(data)
-        }
-
-        const response = await fetch(url, {
-          method,
-          headers,
-          body
-        })
-        return response.json()
-      } catch (e) {
-        console.warn('Error', e.message);
-      }
-    },
-    async mounted() {
-      this.recipes = await this.getRequest('http://localhost/3000/recipes') // указываем порт на котором работает сервер
-    }
   }
 }
 </script>
